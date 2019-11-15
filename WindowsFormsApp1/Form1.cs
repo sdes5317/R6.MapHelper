@@ -59,11 +59,13 @@ namespace WindowsFormsApp1
                 {
                     label1.Text = "";
 
-                    var soundCheck = new SoundCheck();
-                    soundCheck.CanStartMsg += x => { label1.Text = x; };
-                    var whatYouSay = soundCheck.StartListen();
-                    var url = _map.GetUrlByString(whatYouSay);
-                    chrome.GoToPage(url);
+                    //var soundCheck = new SoundCheck();
+                    //soundCheck.CanStartMsg += x => { label1.Text = x; };
+                    //var whatYouSay = soundCheck.StartListen();
+                    //var whatYouSay = "領事館二樓";
+                    //var url = _map.GetUrlByString(whatYouSay);
+                    //chrome.GoToPage(url);
+                    chrome.GoToPage("https://github.com/sdes5317/VoiceMananger");
 
                 }
                 catch (Exception exception)

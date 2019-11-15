@@ -21,7 +21,10 @@ namespace VoiceMananger
             new BrowserFetcher().DownloadAsync(BrowserFetcher.DefaultRevision).Wait();
             var browser = Puppeteer.LaunchAsync(new LaunchOptions
             {
-                Headless = false
+                Args = new[] { "--start-maximized" },
+                //Args = new[] { "--start-maximized","--start-fullscreen" },
+                Headless = false,
+                DefaultViewport = null,
             }).Result;
             _page = browser.PagesAsync().Result.First();
         }
