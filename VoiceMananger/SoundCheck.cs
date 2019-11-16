@@ -17,7 +17,7 @@ namespace VoiceMananger
         public string StartListen()
         {
             //google api
-            StreamingMicRecognizeAsync(5).Wait();
+            StreamingMicRecognizeAsync(3).Wait();
 
             return WhatYouSay;
         }
@@ -37,7 +37,7 @@ namespace VoiceMananger
                             Encoding =
                             RecognitionConfig.Types.AudioEncoding.Linear16,
                             SampleRateHertz = 16000,
-                            LanguageCode = "en",
+                            LanguageCode = "zh-tw",
                         },
                         InterimResults = true,
                     }

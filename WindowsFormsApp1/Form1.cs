@@ -35,7 +35,12 @@ namespace WindowsFormsApp1
 
         private ChromeMananger chrome = new ChromeMananger();
 
-        private Map _map=new Map();
+        private Map _map = new Map();
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -55,22 +60,22 @@ namespace WindowsFormsApp1
             {
                 if (_isRecording) return;
                 _isRecording = true;
-                try
-                {
-                    label1.Text = "";
 
-                    //var soundCheck = new SoundCheck();
-                    //soundCheck.CanStartMsg += x => { label1.Text = x; };
-                    //var whatYouSay = soundCheck.StartListen();
-                    //var whatYouSay = "領事館二樓";
-                    //var url = _map.GetUrlByString(whatYouSay);
-                    //chrome.GoToPage(url);
-                    chrome.GoToPage("https://github.com/sdes5317/VoiceMananger");
+                label1.Text = "";
 
-                }
-                catch (Exception exception)
+                Task.Run(() =>
                 {
-                }
+                    var soundCheck = new SoundCheck();
+                    soundCheck.CanStartMsg += x => { label1.Text = x; };
+
+                    var whatYouSay = soundCheck.StartListen();
+
+                    label1.Text = "end";
+                    label2.Text = whatYouSay;
+                    var url = _map.GetUrlByString(whatYouSay);
+                    chrome.GoToPage(url);
+                });
+
                 _isRecording = false;
             }
         }

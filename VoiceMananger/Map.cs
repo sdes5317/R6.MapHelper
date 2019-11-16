@@ -9,8 +9,8 @@ namespace VoiceMananger
 {
     public class Map
     {
-        public string Name { get; set; } = "default";
-        public string Floor { get; set; } = "default";
+        public string Name { get; set; } = "consulate";
+        public string Floor { get; set; } = "1";
 
         //https://www.r6maps.com/#favela/2/all
         private string[] _urls = { "https://www.r6maps.com/#", "", "/", "", "/all" };
