@@ -66,18 +66,27 @@ namespace WindowsFormsApp1
                 Task.Run(() =>
                 {
                     var soundCheck = new SoundCheck();
-                    soundCheck.CanStartMsg += x => { label1.Text = x; };
+                    soundCheck.CanStartMsg += UpdateStatus;
 
                     var whatYouSay = soundCheck.StartListen();
 
-                    label1.Text = "end";
-                    label2.Text = whatYouSay;
+                    UpdateStatus("end");
+                    UpdateSpeechText(whatYouSay);
                     var url = _map.GetUrlByString(whatYouSay);
                     chrome.GoToPage(url);
                 });
 
                 _isRecording = false;
             }
+        }
+
+        public void UpdateStatus(string status)
+        {
+            label1.BeginInvoke((Action)(() => { label1.Text = status; }));
+        }
+        public void UpdateSpeechText(string speechText)
+        {
+            label2.BeginInvoke((Action)(() => { label2.Text = speechText; }));
         }
     }
 }
