@@ -1,5 +1,5 @@
 # VoiceMananger
-R6聲控開啟地圖
+R6聲控開啟地圖，請搭配雙螢幕使用
 
 ## Required
 1.語音辨識的部分使用[Google.Cloud.Speech.V1](https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Speech.V1/latest),
