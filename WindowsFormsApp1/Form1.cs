@@ -17,6 +17,9 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
+            chrome = new ChromeMananger();
+            Disposed += (sender, args) => { chrome.Dispose(); };
+
             gHook = new GlobalKeyboardHook(); //根據作者的程式碼(class)創造一個新物件
 
             gHook.KeyDown += new KeyEventHandler(gHook_KeyDown);// 連結KeyDown事件
@@ -33,7 +36,7 @@ namespace WindowsFormsApp1
 
         private bool _isRecording = false;
 
-        private ChromeMananger chrome = new ChromeMananger();
+        private ChromeMananger chrome;
 
         private Map _map = new Map();
 
